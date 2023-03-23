@@ -46,3 +46,4 @@ def backtrack(路径, 选择列表):
         做选择  
         backtrack(路径, 选择列表)  
         撤销选择  
+![image](https://user-images.githubusercontent.com/90192841/227175598-13a64c58-47a9-40a3-8c92-464fcab145cd.png)
