@@ -46,3 +46,5 @@
 ![image](https://user-images.githubusercontent.com/90192841/227970145-a61a0d99-0b55-4c73-8165-d818010b4bc1.png)  
 # 二分搜索算法
 ![image](https://user-images.githubusercontent.com/90192841/229037250-dd31eb78-0302-430c-8b57-6db1b868c0f1.png)  
+### 二分查找框架
+![image](https://user-images.githubusercontent.com/90192841/229037637-4fff056f-f743-4d60-9396-2a12fe92bfef.png)  
