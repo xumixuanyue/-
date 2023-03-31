@@ -48,4 +48,8 @@
 ![image](https://user-images.githubusercontent.com/90192841/229037250-dd31eb78-0302-430c-8b57-6db1b868c0f1.png)  
 ### 二分查找框架
 ![image](https://user-images.githubusercontent.com/90192841/229037637-4fff056f-f743-4d60-9396-2a12fe92bfef.png)  
-&emsp;&emsp;计算 mid 时需要防止溢出，代码中left + (right - left) / 2 就和 (left + right) / 2 的结果相同，但是有效防止了 left 和 right 太大，直接相加导致溢出的情况。  
+### 一些细节
+&emsp;&emsp;1、计算 mid 时需要防止溢出，代码中left + (right - left) / 2 就和 (left + right) / 2 的结果相同，但是有效防止了 left 和 right 太大，直接相加导致溢出的情况。  
+&emsp;&emsp;2、while 循环的条件中是 <= 而不是 < 。算法使用的是[left, right] 两端都闭的区间，while(left <= right) 的终止条件是 left == right + 1，如[3, 2]，不会漏掉情况  
+&emsp;&emsp;3、left = mid + 1，right = mid - 1  
+&emsp;&emsp;4、算法缺陷：例如给出有序数组 nums = [1,2,2,2,3]，target 为 2，此算法返回的索引为 2，没错。但是如果我想得到 target 的左侧边界，即索引 1，或者我想得到 target 的右侧边界，即索引 3，这样的话此算法是无法处理的。  
