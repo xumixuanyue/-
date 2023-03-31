@@ -46,19 +46,29 @@
 ![image](https://user-images.githubusercontent.com/90192841/227970145-a61a0d99-0b55-4c73-8165-d818010b4bc1.png)  
 # 二分搜索算法
 ![image](https://user-images.githubusercontent.com/90192841/229037250-dd31eb78-0302-430c-8b57-6db1b868c0f1.png)  
-### 二分查找框架
+### 第一类：普通二分查找框架
 ![image](https://user-images.githubusercontent.com/90192841/229037637-4fff056f-f743-4d60-9396-2a12fe92bfef.png)  
 ### 一些细节
 &emsp;&emsp;1、计算 mid 时需要防止溢出，代码中left + (right - left) / 2 就和 (left + right) / 2 的结果相同，但是有效防止了 left 和 right 太大，直接相加导致溢出的情况。  
 &emsp;&emsp;2、while 循环的条件中是 <= 而不是 < 。算法使用的是[left, right] 两端都闭的区间，while(left <= right) 的终止条件是 left == right + 1，如[3, 2]，不会漏掉情况  
 &emsp;&emsp;3、left = mid + 1，right = mid - 1  
 &emsp;&emsp;4、算法缺陷：例如给出有序数组 nums = [1,2,2,2,3]，target 为 2，此算法返回的索引为 2，没错。但是如果我想得到 target 的左侧边界，即索引 1，或者我想得到 target 的右侧边界，即索引 3，这样的话此算法是无法处理的。  
-### 寻找左侧边界的二分搜索框架
+### 第二类：寻找左侧边界的二分搜索框架
 ![image](https://user-images.githubusercontent.com/90192841/229041745-db7737be-5aac-4244-bf52-f94a7c28f72b.png)  
 ### 一些细节
 &emsp;&emsp;1、right = len(nums)，故while 中是 < 而不是 <=，搜索的是[left, right)左闭右开区间，终止的条件是 left == right，此时搜索区间 [left, left) 为空，所以可以正确终止。  
 &emsp;&emsp;2、没有返回 -1 的操作，在返回的时候额外判断一下 nums[left] 是否等于 target 就行了，如果不等于，就说明 target 不存在。  
 &emsp;&emsp;3、left = mid + 1，right = mid，因为「搜索区间」是 [left, right) 左闭右开。  
 &emsp;&emsp;4、nums[mid] == target 时不要立即返回，而是缩小「搜索区间」的上界 right，在区间 [left, mid) 中继续搜索，即不断向左收缩，保证搜索到左侧边界。  
-&emsp;&emsp;5、若right = len(nums) - 1 (同普通二分算法),也可以，只是 while 中需要用 <= ,且nums[mid] == target时right = mid - 1，最后返回部分代码：  
-![image](https://user-images.githubusercontent.com/90192841/229045077-d59ad844-2acb-4280-a937-279691515234.png)  
+&emsp;&emsp;5、若right = len(nums) - 1 (同普通二分算法),也可以，只是 while 中需要用 <= ,且nums[mid] == target时right = mid - 1，最后返回部分的代码：  
+&emsp;&emsp;![image](https://user-images.githubusercontent.com/90192841/229045077-d59ad844-2acb-4280-a937-279691515234.png)  
+# 第三类：寻找右侧边界的二分查找框架
+![image](https://user-images.githubusercontent.com/90192841/229045561-089ae891-58ec-40c1-9a19-f872283450b3.png)  
+### 一些细节
+&emsp;&emsp;1、当 nums[mid] == target 时，不要立即返回，而是增大「搜索区间」的左边界 left，使得区间不断向右靠拢，达到锁定右侧边界的目的。  
+&emsp;&emsp;2、最后返回 left - 1 ，因为 while 循环的终止条件是 left == right，所以 left - 1 同 right - 1 ，至于为什么要减一，关键在锁定右边界(nums[mid] == target)时的这个条件判断 left = mid + 1 (即mid = left - 1)，故 while 循环结束时，nums[left] 一定不等于 target ，而 nums[left - 1] 可能是 target。  
+&emsp;&emsp;3、返回部分的代码：  
+&emsp;&emsp;![image](https://user-images.githubusercontent.com/90192841/229047062-e77755fc-9fdb-4824-a612-f57a361fbc9e.png)  
+&emsp;&emsp;4、right = len(nums) - 1 时代码框架：  
+&emsp;&emsp;![image](https://user-images.githubusercontent.com/90192841/229047637-9a986776-6ec2-48b6-8e6b-a6e2adf62de3.png)  
+
