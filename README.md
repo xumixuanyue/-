@@ -48,3 +48,4 @@
 ![image](https://user-images.githubusercontent.com/90192841/229037250-dd31eb78-0302-430c-8b57-6db1b868c0f1.png)  
 ### 二分查找框架
 ![image](https://user-images.githubusercontent.com/90192841/229037637-4fff056f-f743-4d60-9396-2a12fe92bfef.png)  
+&emsp;&emsp;计算 mid 时需要防止溢出，代码中left + (right - left) / 2 就和 (left + right) / 2 的结果相同，但是有效防止了 left 和 right 太大，直接相加导致溢出的情况。  
