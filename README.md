@@ -74,6 +74,5 @@
 # 滑动窗口算法
 ![image](https://user-images.githubusercontent.com/90192841/229101192-3d374067-581f-40e6-9d69-8f13f3197117.png)  
 ### 滑动窗口算法框架
-![image](https://user-images.githubusercontent.com/90192841/229101941-d3f493fb-6cc1-4083-8014-800d2396b72b.png)  
-
+![image](https://user-images.githubusercontent.com/90192841/229102178-d00b91a0-147f-42b5-ba02-7f09a1265488.png)  
 
