@@ -44,3 +44,4 @@
 &emsp;&emsp;就是一幅[图]，让你从一个起点start，走到终点end，问最短路径。一般来说，我们写BFS算法都是用[队列]这种数据结构，每次将一个节点周围的所有节点加入队列。  
 &emsp;&emsp;BFS相对DFS的最主要的区别是：BFS找到的路径一定是最短的，但代价就是空间复杂度可能比DFS大很多  
 ![image](https://user-images.githubusercontent.com/90192841/227970145-a61a0d99-0b55-4c73-8165-d818010b4bc1.png)  
+# 二分搜索算法
