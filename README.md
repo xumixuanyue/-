@@ -56,7 +56,9 @@
 ### 寻找左侧边界的二分搜索框架
 ![image](https://user-images.githubusercontent.com/90192841/229041745-db7737be-5aac-4244-bf52-f94a7c28f72b.png)  
 ### 一些细节
-&emsp;&emsp;1、while 中是 < 而不是 <=，搜索的是[left, right)左闭右开区间，终止的条件是 left == right，此时搜索区间 [left, left) 为空，所以可以正确终止。  
+&emsp;&emsp;1、right = len(nums)，故while 中是 < 而不是 <=，搜索的是[left, right)左闭右开区间，终止的条件是 left == right，此时搜索区间 [left, left) 为空，所以可以正确终止。  
 &emsp;&emsp;2、没有返回 -1 的操作，在返回的时候额外判断一下 nums[left] 是否等于 target 就行了，如果不等于，就说明 target 不存在。  
 &emsp;&emsp;3、left = mid + 1，right = mid，因为「搜索区间」是 [left, right) 左闭右开。  
 &emsp;&emsp;4、nums[mid] == target 时不要立即返回，而是缩小「搜索区间」的上界 right，在区间 [left, mid) 中继续搜索，即不断向左收缩，保证搜索到左侧边界。  
+&emsp;&emsp;5、若right = len(nums) - 1 (同普通二分算法),也可以，只是 while 中需要用 <= ,且nums[mid] == target时right = mid - 1，最后返回部分代码：  
+![image](https://user-images.githubusercontent.com/90192841/229045077-d59ad844-2acb-4280-a937-279691515234.png)  
