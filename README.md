@@ -53,3 +53,8 @@
 &emsp;&emsp;2、while 循环的条件中是 <= 而不是 < 。算法使用的是[left, right] 两端都闭的区间，while(left <= right) 的终止条件是 left == right + 1，如[3, 2]，不会漏掉情况  
 &emsp;&emsp;3、left = mid + 1，right = mid - 1  
 &emsp;&emsp;4、算法缺陷：例如给出有序数组 nums = [1,2,2,2,3]，target 为 2，此算法返回的索引为 2，没错。但是如果我想得到 target 的左侧边界，即索引 1，或者我想得到 target 的右侧边界，即索引 3，这样的话此算法是无法处理的。  
+### 寻找左侧边界的二分搜索框架
+![image](https://user-images.githubusercontent.com/90192841/229041745-db7737be-5aac-4244-bf52-f94a7c28f72b.png)  
+### 一些细节
+&emsp;&emsp;1、while 中是 < 而不是 <=，搜索的是[left, right)左闭右开区间，终止的条件是 left == right，此时搜索区间 [left, left) 为空，所以可以正确终止。  
+&emsp;&emsp;2、没有返回 -1 的操作，在返回的时候额外判断一下 nums[left] 是否等于 target 就行了，如果不等于，就说明 target 不存在。  
