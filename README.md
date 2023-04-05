@@ -76,9 +76,9 @@
 ### 滑动窗口算法框架
 ![image](https://user-images.githubusercontent.com/90192841/229102178-d00b91a0-147f-42b5-ba02-7f09a1265488.png)  
 ### 前置初始化：
-&emsp;&emsp;from collections import defaultdict + window, need = defaultdict(int), defaultdict(int)(Python)
-&emsp;&emsp;#include <unordered_map> + unordered_map<char, int> need, window;(C++)
-&emsp;&emsp;left = 0, right = 0, valid = 0, length = float('inf')
+&emsp;&emsp;from collections import defaultdict + window, need = defaultdict(int), defaultdict(int)(Python)  
+&emsp;&emsp;#include <unordered_map> + unordered_map<char, int> need, window;(C++)  
+&emsp;&emsp;left = 0, right = 0, valid = 0, length = float('inf')  
 ### 算法主要需要思考以下几个问题：
 &emsp;&emsp;1、什么时候应该移动 right 扩大窗口？窗口加入字符时，应该更新哪些数据？  
 &emsp;&emsp;2、什么时候窗口应该暂停扩大，开始移动 left 缩小窗口？从窗口移出字符时，应该更新哪些数据？  
